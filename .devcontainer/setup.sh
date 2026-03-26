@@ -32,7 +32,7 @@ php artisan key:generate
 # 4. Clear any cached config so Laravel re-reads the patched .env
 echo "🧹  Clearing config cache..."
 php artisan config:clear
-#php artisan cache:clear
+php artisan cache:clear
 
 # 3. Wait for MySQL to be ready (step 1+2 already done above)
 #echo "⏳  Waiting for MySQL to be ready..."
@@ -42,8 +42,8 @@ php artisan config:clear
 #echo "✅  MySQL is ready."
 
 # 4. Run migrations
-echo "📦  Running migrations..."
-php artisan migrate --force
+#echo "📦  Running migrations..."
+#php artisan migrate --force
 
 # 5. Seed the database
 # echo "🌱  Seeding inhalers..."
@@ -63,6 +63,6 @@ echo "🔒  Setting storage permissions..."
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 echo ""
-echo "🎉  Done! Visit http://localhost:8007"
-echo "    phpMyAdmin:  http://localhost:8087"
+echo "🎉  Done! Visit http://localhost:8008"
+echo "    phpMyAdmin:  http://localhost:8088"
 echo ""
