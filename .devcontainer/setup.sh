@@ -48,6 +48,7 @@ php artisan cache:clear
 # 5. Seed the database
 # echo "🌱  Seeding inhalers..."
 # php artisan db:seed --class=InhalerSeeder --force
+php artisan migrate --seed
 
 # 6. Cache config & routes
 echo "⚡  Caching config and routes..."
