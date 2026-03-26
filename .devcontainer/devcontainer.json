@@ -1,0 +1,25 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+  "name": "teste",
+  // ::: global :::
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  // compatibility and security args
+  //  Docker requires --userns=keep-id in rootless mode
+  "runArgs": ["--userns=keep-id", "--security-opt", "label=disable"],
+  // starts as root, and in the container / entrypoint lowers to 1000 )
+  //"containerUser": "root:root",
+  // the way vscode connects, all the used containers default user_id is 1000, but names can change ( node, squid,... )
+  //"remoteUser": "1000:1000",
+  // Defines where the workspace is mounted
+  "workspaceFolder": "/var/www",
+  // mount workspace to home
+  "workspaceMount": "source=${localWorkspaceFolder},target=/var/www,type=bind",
+  // IMPORTANT: do not update remote user UID, for containers finegrained control
+  //"updateRemoteUserUID": false, 
+  // ⬇️ here lies the openclaw installation script ⬇️
+  "postCreateCommand": "bash /tmp/setup.sh",  
+  // script that executes after posCreateCommand
+  "postStartCommand": "echo 'app is ready!'"
+}
